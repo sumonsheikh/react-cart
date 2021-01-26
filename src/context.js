@@ -1,6 +1,6 @@
 import React ,{ useState, useContext, useReducer, useEffect} from 'react';
-import cartItem from './data';
-import reducer from './reducer';
+import cartItems from './data';
+// import reducer from './reducer';
 const url = 'https://course-api.netlify.app/api/react-useReducer-cart-project'
 const AppContext = React.createContext();
 
@@ -17,7 +17,7 @@ const AppProvider = ({children}) =>{
         </AppContext.Provider>
     )
 }
-export const useGlobalContext = (){
+export const useGlobalContext = ()=>{
     return useContext(AppContext);
 }
 export {AppContext, AppProvider};
