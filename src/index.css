@@ -56,3 +56,43 @@ nav{
   font-size:1.25rem;
   margin-bottom: 0;
 }
+
+/* ======= Cart ========= */
+.cart{
+  min-height: calc(100vh -120px);
+  max-width: 800px;
+  width:90vw;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+  margin-bottom: 3rem;
+}
+.cart h2{
+  text-transform: uppercase;
+  color:#617d98 ;
+  margin-bottom: 3rem;
+}
+.cart footer{
+  margin-top: 4rem;
+  text-align: center;
+}
+.cart-total h4{
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.clear-btn{
+  background: transparent;
+  padding: 0.5rem 1rem;
+  color: hsl(360, 66%, 44%);
+  border: 1px solid hsl(360, 66%,44%);
+  margin-top: 2.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+.clear-btn:hover{
+  color: hsl(360, 66%, 44%);
+  background: hsl(360, 71%, 67%);
+  border-color: hsl(360, 71%, 67%);
+}
