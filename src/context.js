@@ -17,13 +17,17 @@ const AppProvider = ({children}) =>{
         dispatch({type: 'CLEAR_CART'});
        
     }
-    // Remove single cart item
+    // Remove single cart item amount
     const remove =(id) =>{
         dispatch({type: 'REMOVE', payload: id});
     }
     //Increase single item amount
     const increase =(id)=>{
         dispatch({type: 'INCREASE', payload: id});
+    }
+    // Decrease single cart item amount
+    const decrease =(id) =>{
+        dispatch({type: 'DECREASE', payload: id});
     }
     return(
         <AppContext.Provider
@@ -32,6 +36,7 @@ const AppProvider = ({children}) =>{
             clearCart,
             remove,
             increase,
+            decrease,
         }}
         >
             {children}
