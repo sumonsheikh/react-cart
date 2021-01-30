@@ -21,12 +21,17 @@ const AppProvider = ({children}) =>{
     const remove =(id) =>{
         dispatch({type: 'REMOVE', payload: id});
     }
+    //Increase single item amount
+    const increase =(id)=>{
+        dispatch({type: 'INCREASE', payload: id});
+    }
     return(
         <AppContext.Provider
         value={{
             ...state,
             clearCart,
             remove,
+            increase,
         }}
         >
             {children}

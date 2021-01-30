@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import {useGlobalContext} from './context';
 
 const CartContainer =()=> {
-    const {cart, total,clearCart} =useGlobalContext();
+    const {id,cart, total,clearCart} =useGlobalContext();
     const cartLength = cart.length;
     console.log(cartLength);
     if(cartLength === 0){
