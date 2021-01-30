@@ -4,8 +4,11 @@ import CartItem from './CartItem';
 import {useGlobalContext} from './context';
 
 const CartContainer =()=> {
-    const {cart} =useGlobalContext();
-    if(cart.length === 0){
+    const {cart, total,clearCart} =useGlobalContext();
+    const cartLength = cart.length;
+    console.log(cartLength);
+    if(cartLength === 0){
+
         return(
             <section className="cart">
                 <header>
@@ -28,10 +31,10 @@ const CartContainer =()=> {
             <footer >
                 <hr/>
                 <div className="cart-total">
-                    <h4>total <span>$0.00</span></h4>
+                    <h4>total <span>${total}</span></h4>
                 </div>
                 <button className="btn clear-btn"
-                    onClick={()=>console.log("clear cart")}
+                    onClick={clearCart}
                 >
                     clear cart
                 </button>
