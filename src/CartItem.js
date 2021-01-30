@@ -1,6 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import {useGlobalContext} from './context';
 
 const  CartItem =({id,title,price,img,amount})=> {
+    const {remove} = useGlobalContext();
     const [quntiti, setQuantiti] = useState();
     const increaseAmount =()=>{
         quntiti++;
@@ -13,7 +15,7 @@ const  CartItem =({id,title,price,img,amount})=> {
             <div>
                 <h4>{title}</h4>
                 <h4 className="item-price">${price}</h4>
-                <button className="remove-btn" onClick={()=>console.log('remove item')}>
+                <button className="remove-btn" onClick={()=>remove(id)}>
                     remove
                 </button>
             </div>
