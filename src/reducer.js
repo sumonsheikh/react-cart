@@ -24,12 +24,14 @@ const reducer = (state, action) =>{
        }).filter((cartItem) => cartItem.amount !== 0)
        return {...state, cart: tempCart};
    }
-   
+
    if(action.type === 'GET_TOTALS'){
     const { total, amount } = state.cart.reduce(
         ( cartTotal, cartItem)=>{
             const { price , amount} = cartItem;
+            const itemTotal = price*amount;
             cartTotal.amount += amount;
+            cartTotal.total += itemTotal;
             console.log(cartTotal);
             return cartTotal;
     },
