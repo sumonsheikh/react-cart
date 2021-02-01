@@ -1,7 +1,7 @@
 import React ,{ useState, useContext, useReducer, useEffect} from 'react';
 import cartItems from './data';
 import reducer from './reducer';
-const url = 'https://course-api.netlify.app/api/react-useReducer-cart-project'
+const url = 'https://course-api.com/react-useReducer-cart-project'
 const AppContext = React.createContext();
 const initialState ={
     loading: false,
@@ -29,9 +29,21 @@ const AppProvider = ({children}) =>{
     const decrease =(id) =>{
         dispatch({type: 'DECREASE', payload: id});
     }
-useEffect(()=>{
-   dispatch({type: 'GET_TOTALS'});
-    },[state.cart])  
+    const fetchData = async ()=>{
+        dispatch({type: 'LOADING'});
+        const response = await fetch(url);
+        const cart = await response.json();
+        console.log(cart);
+        dispatch({ type: 'DISPLAY_ITEMS', payload: cart });
+    }
+    useEffect(()=>{
+        fetchData();
+    }, [ ])
+
+    useEffect(()=>{
+        dispatch({type: 'GET_TOTALS'});
+    },[state.cart]) 
+
     return(
         <AppContext.Provider
         value={{
